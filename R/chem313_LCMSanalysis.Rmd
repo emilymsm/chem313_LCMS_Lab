@@ -1,0 +1,146 @@
+---
+title: "chem313_LCMSlab"
+author: "Emily McLaughlin Sta. Maria"
+date: "11/20/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+
+```
+
+```{r}
+X <- lm(calibration$signal~calibration$conc)
+plot(calibration$signal~calibration$conc,
+     xlab="[Levoglucosan] (ug/mL)",
+     ylab="Peak Area",
+     main="Calibration Curve for Levoglucosan")
+abline(X)
+summary(X)
+
+```
+```{r}
+
+## sorting by coast and year - West
+
+lev_conc_solution <- (data$signal+119530)/208247 #x = (y - b)/m
+
+lev_conc <- lev_conc_solution*4*70/24 ##unit conversion 
+
+error <- sqrt((3427/208247)^2 + (19252/119530)^2) * lev_conc
+
+graph_data <- data.frame(lev_conc, error, data$coast, data$year)
+
+West_lev <- graph_data %>%
+  filter(data.coast=="W") 
+
+West_lev_1750 <- West_lev %>% 
+    filter(data.year==1750)
+West_lev_1950 <- West_lev %>% 
+    filter(data.year==1950)
+West_lev_2020 <- West_lev %>% 
+    filter(data.year==2020)
+
+West_lev_1750
+
+W_1750 <- mean(West_lev_1750$lev_conc)
+W_1950 <- mean(West_lev_1950$lev_conc)
+W_2020 <- mean(West_lev_2020$lev_conc)
+
+W_errors_sq_17 <- (West_lev_1750$error)^2
+W_errors_sum_17 <- sum(W_errors_sq_17)
+W_errors_17 <- (sqrt(W_errors_sum_17)/sum(West_lev_1750$lev_conc))*W_1750
+
+W_errors_sq_19 <- (West_lev_1950$error)^2
+W_errors_sum_19 <- sum(W_errors_sq_19)
+W_errors_19 <- (sqrt(W_errors_sum_19)/sum(West_lev_1950$lev_conc))*W_1950
+
+W_errors_sq_20 <- (West_lev_2020$error)^2
+W_errors_sum_20 <- sum(W_errors_sq_20)
+W_errors_20 <- (sqrt(W_errors_sum_20)/sum(West_lev_2020$lev_conc))*W_2020
+
+
+west_averages <- c(W_1750, W_1950, W_2020)
+west_errors <- c(W_errors_17, W_errors_19, W_errors_20)
+
+```
+
+
+```{r}
+## sorting by coast and year - West
+
+East_lev <- graph_data %>%
+  filter(data$coast=="E") 
+
+East_lev_1750 <- East_lev %>% 
+    filter(data.year==1750)
+East_lev_1950 <- East_lev %>% 
+    filter(data.year==1950)
+East_lev_2020 <- East_lev %>% 
+    filter(data.year==2020)
+
+E_1750 <- mean(East_lev_1750$lev_conc)
+E_1950 <- mean(East_lev_1950$lev_conc)
+E_2020 <- mean(East_lev_2020$lev_conc)
+
+east_averages <- c(E_1750, E_1950, E_2020)
+
+E_errors_sq_17 <- (East_lev_1750$error)^2
+E_errors_sum_17 <- sum(E_errors_sq_17)
+E_errors_17 <- (sqrt(E_errors_sum_17)/sum(East_lev_1750$lev_conc))*E_1750
+
+E_errors_sq_19 <- (East_lev_1950$error)^2
+E_errors_sum_19 <- sum(E_errors_sq_19)
+E_errors_19 <- (sqrt(E_errors_sum_19)/sum(East_lev_1950$lev_conc))*E_1950
+
+E_errors_sq_20 <- (East_lev_2020$error)^2
+E_errors_sum_20 <- sum(E_errors_sq_20)
+E_errors_20 <- (sqrt(E_errors_sum_20)/sum(East_lev_2020$lev_conc))*E_2020
+
+east_errors <- c(E_errors_17, E_errors_19, E_errors_20)
+
+west_averages <- c(W_1750, W_1950, W_2020)
+west_errors <- c(W_errors_17, W_errors_19, W_errors_20)
+
+
+```
+
+
+```{r}
+
+average_conc <- c(E_1750, E_1950, E_2020, W_1750, W_1950, W_2020)
+average_errors <- c(E_errors_17, E_errors_19, E_errors_20, W_errors_17, W_errors_19, W_errors_20)
+average_coast <- c("E", "E", "E", "W", "W", "W")
+average_year <- c("1750", "1950", "2020", "1750", "1950", "2020")
+
+graph_data_averages <- data.frame(average_conc, average_errors, average_coast, average_year)
+
+ggplot(data=graph_data_averages, aes(x=average_year, y=average_conc, fill=average_coast)) +
+  geom_bar(stat="identity", position=position_dodge()) +
+  geom_errorbar(aes(ymin=average_conc-average_errors, ymax=average_conc+average_errors), width=0.2, position=position_dodge(0.9)) +
+  xlab("Year") +
+  ylab("Concentration (ug/m^3)") +
+  ggtitle("Levoglucosan Levels") +
+  scale_fill_discrete(name="US Coast", labels=c("East", "West")) +
+  theme(plot.title = element_text(hjust = 0.5))
+
+
+
+```
+
+
+
+```{r}
+#statistics
+
+var.test(East_lev_2020$lev_conc, West_lev_2020$lev_conc) 
+t.test(West_lev_2020$lev_conc, East_lev_2020$lev_conc, mu=0, paired=FALSE, var.equal=FALSE)
+
+
+```
+
+
+
