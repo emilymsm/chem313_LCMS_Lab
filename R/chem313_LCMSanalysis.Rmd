@@ -2,13 +2,21 @@
 title: "chem313_LCMSlab"
 author: "Emily McLaughlin Sta. Maria"
 date: "11/20/2020"
-output: html_document
+output:
+  pdf_document: default
+  word_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+
+calibration <- read_csv("/home/mclaujem/chem313/chem313_LCMSlab/data/calibration.csv")
+
+data <- read_csv("/home/mclaujem/chem313/chem313_LCMSlab/data/imaginarydata.csv")
+
 
 ```
 

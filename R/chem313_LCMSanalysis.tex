@@ -1,0 +1,315 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdftitle={chem313\_LCMSlab},
+            pdfauthor={Emily McLaughlin Sta. Maria},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\title{chem313\_LCMSlab}
+\author{Emily McLaughlin Sta. Maria}
+\date{11/20/2020}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X <-}\StringTok{ }\KeywordTok{lm}\NormalTok{(calibration}\OperatorTok{$}\NormalTok{signal}\OperatorTok{~}\NormalTok{calibration}\OperatorTok{$}\NormalTok{conc)}
+\KeywordTok{plot}\NormalTok{(calibration}\OperatorTok{$}\NormalTok{signal}\OperatorTok{~}\NormalTok{calibration}\OperatorTok{$}\NormalTok{conc,}
+     \DataTypeTok{xlab=}\StringTok{"[Levoglucosan] (ug/mL)"}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{"Peak Area"}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{"Calibration Curve for Levoglucosan"}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(X)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{chem313_LCMSanalysis_files/figure-latex/unnamed-chunk-1-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(X)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = calibration$signal ~ calibration$conc)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -78140 -21718   5998  31208  65807 
+## 
+## Coefficients:
+##                  Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)       -119530      19252  -6.209    1e-04 ***
+## calibration$conc   208247       3427  60.768 3.54e-14 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 45280 on 10 degrees of freedom
+## Multiple R-squared:  0.9973, Adjusted R-squared:  0.997 
+## F-statistic:  3693 on 1 and 10 DF,  p-value: 3.54e-14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## sorting by coast and year - West}
+
+\NormalTok{lev_conc_solution <-}\StringTok{ }\NormalTok{(data}\OperatorTok{$}\NormalTok{signal}\OperatorTok{+}\DecValTok{119530}\NormalTok{)}\OperatorTok{/}\DecValTok{208247} \CommentTok{#x = (y - b)/m}
+
+\NormalTok{lev_conc <-}\StringTok{ }\NormalTok{lev_conc_solution}\OperatorTok{*}\DecValTok{4}\OperatorTok{*}\DecValTok{70}\OperatorTok{/}\DecValTok{24}\NormalTok{ ##unit conversion }
+
+\NormalTok{error <-}\StringTok{ }\KeywordTok{sqrt}\NormalTok{((}\DecValTok{3427}\OperatorTok{/}\DecValTok{208247}\NormalTok{)}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{(}\DecValTok{19252}\OperatorTok{/}\DecValTok{119530}\NormalTok{)}\OperatorTok{^}\DecValTok{2}\NormalTok{) }\OperatorTok{*}\StringTok{ }\NormalTok{lev_conc}
+
+\NormalTok{graph_data <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(lev_conc, error, data}\OperatorTok{$}\NormalTok{coast, data}\OperatorTok{$}\NormalTok{year)}
+
+\NormalTok{West_lev <-}\StringTok{ }\NormalTok{graph_data }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(data.coast}\OperatorTok{==}\StringTok{"W"}\NormalTok{) }
+
+\NormalTok{West_lev_}\DecValTok{1750}\NormalTok{ <-}\StringTok{ }\NormalTok{West_lev }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{filter}\NormalTok{(data.year}\OperatorTok{==}\DecValTok{1750}\NormalTok{)}
+\NormalTok{West_lev_}\DecValTok{1950}\NormalTok{ <-}\StringTok{ }\NormalTok{West_lev }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{filter}\NormalTok{(data.year}\OperatorTok{==}\DecValTok{1950}\NormalTok{)}
+\NormalTok{West_lev_}\DecValTok{2020}\NormalTok{ <-}\StringTok{ }\NormalTok{West_lev }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{filter}\NormalTok{(data.year}\OperatorTok{==}\DecValTok{2020}\NormalTok{)}
+
+\NormalTok{West_lev_}\DecValTok{1750}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   lev_conc    error data.coast data.year
+## 1 47.86775 7.749917          W      1750
+## 2 48.93437 7.922607          W      1750
+## 3 50.54213 8.182906          W      1750
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{W_}\DecValTok{1750}\NormalTok{ <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(West_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{lev_conc)}
+\NormalTok{W_}\DecValTok{1950}\NormalTok{ <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(West_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{lev_conc)}
+\NormalTok{W_}\DecValTok{2020}\NormalTok{ <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(West_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{lev_conc)}
+
+\NormalTok{W_errors_sq_}\DecValTok{17}\NormalTok{ <-}\StringTok{ }\NormalTok{(West_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{error)}\OperatorTok{^}\DecValTok{2}
+\NormalTok{W_errors_sum_}\DecValTok{17}\NormalTok{ <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(W_errors_sq_}\DecValTok{17}\NormalTok{)}
+\NormalTok{W_errors_}\DecValTok{17}\NormalTok{ <-}\StringTok{ }\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(W_errors_sum_}\DecValTok{17}\NormalTok{)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(West_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{lev_conc))}\OperatorTok{*}\NormalTok{W_}\DecValTok{1750}
+
+\NormalTok{W_errors_sq_}\DecValTok{19}\NormalTok{ <-}\StringTok{ }\NormalTok{(West_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{error)}\OperatorTok{^}\DecValTok{2}
+\NormalTok{W_errors_sum_}\DecValTok{19}\NormalTok{ <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(W_errors_sq_}\DecValTok{19}\NormalTok{)}
+\NormalTok{W_errors_}\DecValTok{19}\NormalTok{ <-}\StringTok{ }\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(W_errors_sum_}\DecValTok{19}\NormalTok{)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(West_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{lev_conc))}\OperatorTok{*}\NormalTok{W_}\DecValTok{1950}
+
+\NormalTok{W_errors_sq_}\DecValTok{20}\NormalTok{ <-}\StringTok{ }\NormalTok{(West_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{error)}\OperatorTok{^}\DecValTok{2}
+\NormalTok{W_errors_sum_}\DecValTok{20}\NormalTok{ <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(W_errors_sq_}\DecValTok{20}\NormalTok{)}
+\NormalTok{W_errors_}\DecValTok{20}\NormalTok{ <-}\StringTok{ }\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(W_errors_sum_}\DecValTok{20}\NormalTok{)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(West_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{lev_conc))}\OperatorTok{*}\NormalTok{W_}\DecValTok{2020}
+
+
+\NormalTok{west_averages <-}\StringTok{ }\KeywordTok{c}\NormalTok{(W_}\DecValTok{1750}\NormalTok{, W_}\DecValTok{1950}\NormalTok{, W_}\DecValTok{2020}\NormalTok{)}
+\NormalTok{west_errors <-}\StringTok{ }\KeywordTok{c}\NormalTok{(W_errors_}\DecValTok{17}\NormalTok{, W_errors_}\DecValTok{19}\NormalTok{, W_errors_}\DecValTok{20}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## sorting by coast and year - West}
+
+\NormalTok{East_lev <-}\StringTok{ }\NormalTok{graph_data }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{filter}\NormalTok{(data}\OperatorTok{$}\NormalTok{coast}\OperatorTok{==}\StringTok{"E"}\NormalTok{) }
+
+\NormalTok{East_lev_}\DecValTok{1750}\NormalTok{ <-}\StringTok{ }\NormalTok{East_lev }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{filter}\NormalTok{(data.year}\OperatorTok{==}\DecValTok{1750}\NormalTok{)}
+\NormalTok{East_lev_}\DecValTok{1950}\NormalTok{ <-}\StringTok{ }\NormalTok{East_lev }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{filter}\NormalTok{(data.year}\OperatorTok{==}\DecValTok{1950}\NormalTok{)}
+\NormalTok{East_lev_}\DecValTok{2020}\NormalTok{ <-}\StringTok{ }\NormalTok{East_lev }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{filter}\NormalTok{(data.year}\OperatorTok{==}\DecValTok{2020}\NormalTok{)}
+
+\NormalTok{E_}\DecValTok{1750}\NormalTok{ <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(East_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{lev_conc)}
+\NormalTok{E_}\DecValTok{1950}\NormalTok{ <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(East_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{lev_conc)}
+\NormalTok{E_}\DecValTok{2020}\NormalTok{ <-}\StringTok{ }\KeywordTok{mean}\NormalTok{(East_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{lev_conc)}
+
+\NormalTok{east_averages <-}\StringTok{ }\KeywordTok{c}\NormalTok{(E_}\DecValTok{1750}\NormalTok{, E_}\DecValTok{1950}\NormalTok{, E_}\DecValTok{2020}\NormalTok{)}
+
+\NormalTok{E_errors_sq_}\DecValTok{17}\NormalTok{ <-}\StringTok{ }\NormalTok{(East_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{error)}\OperatorTok{^}\DecValTok{2}
+\NormalTok{E_errors_sum_}\DecValTok{17}\NormalTok{ <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(E_errors_sq_}\DecValTok{17}\NormalTok{)}
+\NormalTok{E_errors_}\DecValTok{17}\NormalTok{ <-}\StringTok{ }\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(E_errors_sum_}\DecValTok{17}\NormalTok{)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(East_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{lev_conc))}\OperatorTok{*}\NormalTok{E_}\DecValTok{1750}
+
+\NormalTok{E_errors_sq_}\DecValTok{19}\NormalTok{ <-}\StringTok{ }\NormalTok{(East_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{error)}\OperatorTok{^}\DecValTok{2}
+\NormalTok{E_errors_sum_}\DecValTok{19}\NormalTok{ <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(E_errors_sq_}\DecValTok{19}\NormalTok{)}
+\NormalTok{E_errors_}\DecValTok{19}\NormalTok{ <-}\StringTok{ }\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(E_errors_sum_}\DecValTok{19}\NormalTok{)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(East_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{lev_conc))}\OperatorTok{*}\NormalTok{E_}\DecValTok{1950}
+
+\NormalTok{E_errors_sq_}\DecValTok{20}\NormalTok{ <-}\StringTok{ }\NormalTok{(East_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{error)}\OperatorTok{^}\DecValTok{2}
+\NormalTok{E_errors_sum_}\DecValTok{20}\NormalTok{ <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(E_errors_sq_}\DecValTok{20}\NormalTok{)}
+\NormalTok{E_errors_}\DecValTok{20}\NormalTok{ <-}\StringTok{ }\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(E_errors_sum_}\DecValTok{20}\NormalTok{)}\OperatorTok{/}\KeywordTok{sum}\NormalTok{(East_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{lev_conc))}\OperatorTok{*}\NormalTok{E_}\DecValTok{2020}
+
+\NormalTok{east_errors <-}\StringTok{ }\KeywordTok{c}\NormalTok{(E_errors_}\DecValTok{17}\NormalTok{, E_errors_}\DecValTok{19}\NormalTok{, E_errors_}\DecValTok{20}\NormalTok{)}
+
+\NormalTok{west_averages <-}\StringTok{ }\KeywordTok{c}\NormalTok{(W_}\DecValTok{1750}\NormalTok{, W_}\DecValTok{1950}\NormalTok{, W_}\DecValTok{2020}\NormalTok{)}
+\NormalTok{west_errors <-}\StringTok{ }\KeywordTok{c}\NormalTok{(W_errors_}\DecValTok{17}\NormalTok{, W_errors_}\DecValTok{19}\NormalTok{, W_errors_}\DecValTok{20}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{average_conc <-}\StringTok{ }\KeywordTok{c}\NormalTok{(E_}\DecValTok{1750}\NormalTok{, E_}\DecValTok{1950}\NormalTok{, E_}\DecValTok{2020}\NormalTok{, W_}\DecValTok{1750}\NormalTok{, W_}\DecValTok{1950}\NormalTok{, W_}\DecValTok{2020}\NormalTok{)}
+\NormalTok{average_errors <-}\StringTok{ }\KeywordTok{c}\NormalTok{(E_errors_}\DecValTok{17}\NormalTok{, E_errors_}\DecValTok{19}\NormalTok{, E_errors_}\DecValTok{20}\NormalTok{, W_errors_}\DecValTok{17}\NormalTok{, W_errors_}\DecValTok{19}\NormalTok{, W_errors_}\DecValTok{20}\NormalTok{)}
+\NormalTok{average_coast <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"E"}\NormalTok{, }\StringTok{"E"}\NormalTok{, }\StringTok{"E"}\NormalTok{, }\StringTok{"W"}\NormalTok{, }\StringTok{"W"}\NormalTok{, }\StringTok{"W"}\NormalTok{)}
+\NormalTok{average_year <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"1750"}\NormalTok{, }\StringTok{"1950"}\NormalTok{, }\StringTok{"2020"}\NormalTok{, }\StringTok{"1750"}\NormalTok{, }\StringTok{"1950"}\NormalTok{, }\StringTok{"2020"}\NormalTok{)}
+
+\NormalTok{graph_data_averages <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(average_conc, average_errors, average_coast, average_year)}
+
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data=}\NormalTok{graph_data_averages, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\NormalTok{average_year, }\DataTypeTok{y=}\NormalTok{average_conc, }\DataTypeTok{fill=}\NormalTok{average_coast)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{stat=}\StringTok{"identity"}\NormalTok{, }\DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{()) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_errorbar}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{ymin=}\NormalTok{average_conc}\OperatorTok{-}\NormalTok{average_errors, }\DataTypeTok{ymax=}\NormalTok{average_conc}\OperatorTok{+}\NormalTok{average_errors), }\DataTypeTok{width=}\FloatTok{0.2}\NormalTok{, }\DataTypeTok{position=}\KeywordTok{position_dodge}\NormalTok{(}\FloatTok{0.9}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Year"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Concentration (ug/m^3)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"Levoglucosan Levels"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_fill_discrete}\NormalTok{(}\DataTypeTok{name=}\StringTok{"US Coast"}\NormalTok{, }\DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{"East"}\NormalTok{, }\StringTok{"West"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{plot.title =} \KeywordTok{element_text}\NormalTok{(}\DataTypeTok{hjust =} \FloatTok{0.5}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{chem313_LCMSanalysis_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#statistics}
+
+\KeywordTok{var.test}\NormalTok{(East_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{lev_conc, West_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{lev_conc) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  East_lev_2020$lev_conc and West_lev_2020$lev_conc
+## F = 0.00037247, num df = 2, denom df = 2, p-value = 0.0007447
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  9.550556e-06 1.452640e-02
+## sample estimates:
+## ratio of variances 
+##       0.0003724717
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(West_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{lev_conc, East_lev_}\DecValTok{2020}\OperatorTok{$}\NormalTok{lev_conc, }\DataTypeTok{mu=}\DecValTok{0}\NormalTok{, }\DataTypeTok{paired=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{var.equal=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Welch Two Sample t-test
+## 
+## data:  West_lev_2020$lev_conc and East_lev_2020$lev_conc
+## t = 1.445, df = 2.0015, p-value = 0.2852
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -52.36633 105.38039
+## sample estimates:
+## mean of x mean of y 
+##  82.36755  55.86052
+\end{verbatim}
+
+\end{document}
