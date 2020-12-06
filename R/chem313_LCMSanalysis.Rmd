@@ -147,6 +147,13 @@ ggplot(data=graph_data_averages, aes(x=average_year, y=average_conc, fill=averag
 var.test(East_lev_2020$lev_conc, West_lev_2020$lev_conc) 
 t.test(West_lev_2020$lev_conc, East_lev_2020$lev_conc, mu=0, paired=FALSE, var.equal=FALSE)
 
+var.test(East_lev_1950$lev_conc, West_lev_1950$lev_conc)
+t.test(West_lev_1950$lev_conc, East_lev_1950$lev_conc, mu=0, paired=TRUE, var.equal=FALSE)
+
+var.test(East_lev_1750$lev_conc, West_lev_1750$lev_conc)
+t.test(West_lev_1750$lev_conc, East_lev_1750$lev_conc, mu=0, paired=TRUE, var.equal=FALSE)
+
+
 
 ```
 
