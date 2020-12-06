@@ -3,8 +3,8 @@ title: "chem313_LCMSlab"
 author: "Emily McLaughlin Sta. Maria"
 date: "11/20/2020"
 output:
-  pdf_document: default
   word_document: default
+  pdf_document: default
   html_document: default
 ---
 
@@ -153,7 +153,11 @@ t.test(West_lev_1950$lev_conc, East_lev_1950$lev_conc, mu=0, paired=TRUE, var.eq
 var.test(East_lev_1750$lev_conc, West_lev_1750$lev_conc)
 t.test(West_lev_1750$lev_conc, East_lev_1750$lev_conc, mu=0, paired=TRUE, var.equal=FALSE)
 
+east_averages
+east_errors
 
+west_averages
+west_errors
 
 ```
 

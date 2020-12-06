@@ -312,4 +312,124 @@
 ##  82.36755  55.86052
 \end{verbatim}
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var.test}\NormalTok{(East_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{lev_conc, West_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{lev_conc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  East_lev_1950$lev_conc and West_lev_1950$lev_conc
+## F = 0.16317, num df = 2, denom df = 2, p-value = 0.2806
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.004183938 6.363769138
+## sample estimates:
+## ratio of variances 
+##          0.1631736
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(West_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{lev_conc, East_lev_}\DecValTok{1950}\OperatorTok{$}\NormalTok{lev_conc, }\DataTypeTok{mu=}\DecValTok{0}\NormalTok{, }\DataTypeTok{paired=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{var.equal=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Paired t-test
+## 
+## data:  West_lev_1950$lev_conc and East_lev_1950$lev_conc
+## t = 8.3602, df = 2, p-value = 0.01401
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  2.910520 9.083154
+## sample estimates:
+## mean of the differences 
+##                5.996837
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{var.test}\NormalTok{(East_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{lev_conc, West_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{lev_conc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  F test to compare two variances
+## 
+## data:  East_lev_1750$lev_conc and West_lev_1750$lev_conc
+## F = 0.032769, num df = 2, denom df = 2, p-value = 0.06346
+## alternative hypothesis: true ratio of variances is not equal to 1
+## 95 percent confidence interval:
+##  0.0008402221 1.2779778167
+## sample estimates:
+## ratio of variances 
+##         0.03276866
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{t.test}\NormalTok{(West_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{lev_conc, East_lev_}\DecValTok{1750}\OperatorTok{$}\NormalTok{lev_conc, }\DataTypeTok{mu=}\DecValTok{0}\NormalTok{, }\DataTypeTok{paired=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{var.equal=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Paired t-test
+## 
+## data:  West_lev_1750$lev_conc and East_lev_1750$lev_conc
+## t = 10.609, df = 2, p-value = 0.008769
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##   5.151838 12.182305
+## sample estimates:
+## mean of the differences 
+##                8.667072
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{east_averages}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 40.44768 35.85727 55.86052
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{east_errors}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.780875 3.352308 5.221748
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{west_averages}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 49.11475 41.85410 82.36755
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{west_errors}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 4.592129 3.915261 8.072002
+\end{verbatim}
+
 \end{document}
